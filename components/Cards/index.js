@@ -22,17 +22,17 @@ const axiosPromiseCard = axios.get('https://lambda-times-backend.herokuapp.com/a
 const entryHTMLCards = document.querySelector('.cards-container');
 
 // console.log(axiosPromiseCard);
-// console.log(entryHTMLCards);
+console.log(entryHTMLCards);
 
 axiosPromiseCard.then(cardResponse => {
     const articleData = Object.values(cardResponse.data.articles);
-    console.log(articleData);
+    // console.log(articleData);
 
     articleData.forEach(cards => {
         cards.forEach(data => {
             entryHTMLCards.appendChild(createCard(data));
         })
-        console.log(cards);
+        // console.log(cards);
     })
 })
 .catch(cardError => {
