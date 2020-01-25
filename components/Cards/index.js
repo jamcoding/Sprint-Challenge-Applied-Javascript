@@ -17,3 +17,20 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+const axiosPromiseCard = axios.get('https://lambda-times-backend.herokuapp.com/articles');
+const entryHTMLCards = document.querySelector('.cards-container');
+
+console.log(axiosPromiseCard);
+console.log(entryHTMLCards);
+
+function createCard(data) {
+
+    const tab = document.createElement('div');
+
+    tab.textContent = `${data.topics}`;
+
+    tab.classList.add('tab');
+
+    return tab;
+}

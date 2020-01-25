@@ -9,29 +9,28 @@
 //    <div class="tab">topic here</div>
 
 const axiosPromise =  axios.get('https://lambda-times-backend.herokuapp.com/topics');
-const entryHTML = document.querySelector('.topics');
+const entryHTMLTabs = document.querySelector('.topics');
 
-console.log(axiosPromise);
-console.log(entryHTML);
+// console.log(axiosPromise);
 
 axiosPromise.then(response => {
-    console.log('res', response);
-    console.log('res.data.topics', response.data.topics);
+    // console.log('res', response);
+    // console.log('res.data.topics', response.data.topics);
 
     let tabInfo = createTab(response.data);
 
-    entryHTML.appendChild(tabInfo);
+    entryHTMLTabs.appendChild(tabInfo);
 })
 
 axiosPromise.catch(error => {
     console.log('error is occurring', error);
 })
 
-function createTab(data) {
+function createTab(tabData) {
 
     const tab = document.createElement('div');
 
-    tab.textContent = `${data.topics}`;
+    tab.textContent = `${tabData.topics}`;
 
     tab.classList.add('tab');
 
